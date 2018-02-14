@@ -1,0 +1,41 @@
+group 'org.mobile'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE")
+    }
+}
+
+jar {
+    baseName = 'ocr-spring-boot'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'commons-validator:commons-validator:1.4.0'
+    compile 'org.apache.commons:commons-text:1.2'
+    compile 'edu.stanford.nlp:stanford-corenlp:3.7.0'
+    compile 'edu.stanford.nlp:stanford-corenlp:3.7.0:models'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business Card Parser</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button.parse").click(function() {
+                $("span.result").text("");
+                var text = $(".cardText").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/parse",
+                    data: text,
+                    contentType: "text/plain",
+                    success: function(data) {
+                        if(data) {
+                            $("span.name").text(data.name);
+                            $("span.phoneNumber").text(data.phoneNumber);
+                            $("span.emailAddress").text(data.emailAddress);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Sample Card Parser</h1>
+    <h3>Enter Text</h3>
+    <textarea class="cardText"></textarea>
+    <button class="parse">Parse</button>
+    <h3>Results</h3>
+    Name: <span class="result name"></span><br/>
+    Phone Number: <span class="result phoneNumber"></span><br/>
+    Email Address: <span class="result emailAddress"></span>
+</body>
+</html>

@@ -12,10 +12,10 @@ public class PhoneNumberParser {
     private Pattern phoneNumberPattern = Pattern.compile(".*([0-9 ()-]{10,})");
 
     /**
-     * Attempts to find digits in a line of text. All non-digits are returned as the number, or null if no match
+     * Attempts to find digits (>10) in a line of text. All non-digits are returned as the number, or null if no match
      *
-     * @param line
-     * @return
+     * @param line text to be parsed
+     * @return phone number or null if not found
      */
     public String findPhoneNumber(String line) {
         String phone = null;

@@ -21,12 +21,12 @@ public class BusinessCardParser {
 
     /**
      * Parse through a newline separated document in an attempt to create a ContactInfo object.
-     * This will run through the document line by line, trying to match on an email address first,
-     * and if there is no match, find a phone number next. Finally, if no match with those, it will
-     * attempt the human name recognition.
+     * For each line, it attempts to find an email address first (most unique). If nothing was found,
+     * it attempts a phone number next. Finally, a Human Name is attempted last if no other parsers
+     * worked.
      *
-     * @param document
-     * @return
+     * @param document newline separated text to parse
+     * @return populated ContactInfo or null if document is null
      */
     public ContactInfo getContactInfo(String document) {
         ContactInfo info = null;

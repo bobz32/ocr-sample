@@ -25,3 +25,15 @@ recognizable fields (email, phone number) first, before attempting to parse the 
 
 ## Requirements / Instructions
 
+This build requires JDK8 installed and properly configured in your system path/environment variables, and `gradle`:
+
+    $ git clone https://github.com/bobz32/ocr-sample.git /path/to/repository
+    $ cd /path/to/repository
+    $ gradle bootRun
+    
+Once `:bootRun` is complete in the console, open your browser and navigate to `http://localhost:8080/` and submit your tests.
+
+Alternatively, you could use `curl` or another tool to `POST` your text to `http://localhost:8080/parse`.
+    
+If gradle is not installed, you may use the gradle wrapper provided in the repository, `gradlew` or `gradlew.bat` for Linux or 
+Windows, respectively.
